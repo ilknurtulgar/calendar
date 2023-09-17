@@ -7,4 +7,5 @@ class IconUtil{
   static const Icon phone = Icon(Icons.phone_outlined);
   static const Icon visibility = Icon(Icons.visibility_outlined);
   static const Icon visibilityOff = Icon(Icons.visibility_off_outlined);
+  static const Icon close = Icon(Icons.close);
 }
