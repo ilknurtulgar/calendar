@@ -23,17 +23,14 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 37),vertical: dynamicHeight(context, 18)),
-      child: SizedBox(
-        height: dynamicHeight(context, 50),
-        child: Observer(
-          builder: (_) => TextFormField(
-              controller: textController,
-              obscureText: textObscurity.obscureText(type).value,
-              keyboardType: keyboardType,
-              decoration: inputDecoration()),
-        ),
+    return SizedBox(
+      height: dynamicHeight(context, 50),
+      child: Observer(
+        builder: (_) => TextFormField(
+            controller: textController,
+            obscureText: textObscurity.obscureText(type).value,
+            keyboardType: keyboardType,
+            decoration: inputDecoration()),
       ),
     );
   }
