@@ -12,6 +12,7 @@ class SurfaceColors {
 
 class TextColors {
   static const PRIMARY_COLOR = Colors.white;
+  static const SECONDARY_COLOR = Colors.black;
 }
 
 class AssetColors {

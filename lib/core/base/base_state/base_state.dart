@@ -106,9 +106,9 @@ extension StatelessExtension on StatelessWidget {
 
   double dynamicHeight(BuildContext context, double value) =>
       (height(context) - topPadding(context) - bottomPadding(context)) /
-      932 *
+      844 *
       value; // design height
 
   double dynamicWidth(BuildContext context, double value) =>
-      width(context) / 430 * value; // design width
+      width(context) / 390 * value; // design width
 }
