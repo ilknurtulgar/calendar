@@ -1,9 +1,8 @@
+import 'package:calendar/core/base/base_state/base_state.dart';
 import 'package:calendar/product/constants/util/border_radius_constants.dart';
-import 'package:calendar/product/constants/util/padding_constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomFilledButton extends StatelessWidget {
-  final double? height;
   final double? width;
   final bool? shouldCoverHorizontal;
   final Color backgroundColor;
@@ -14,7 +13,6 @@ class CustomFilledButton extends StatelessWidget {
 
   const CustomFilledButton({
     super.key,
-    this.height,
     this.width,
     this.borderColor,
     this.shouldCoverHorizontal,
@@ -26,25 +24,30 @@ class CustomFilledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          padding: AppPaddings.MEDIUM_V + AppPaddings.LARGE_H,
-          width: shouldCoverHorizontal == true ? double.infinity : width,
-          height: height,
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: AppBorderRadius.LARGE,
-            border: Border.all(
-              color: borderColor ?? backgroundColor,
+    return SizedBox(
+      height: dynamicHeight(context, 50),
+      child: ClipRRect(
+        borderRadius: AppBorderRadius.LARGE,
+        child: Material(
+          child: InkWell(
+            overlayColor: const MaterialStatePropertyAll(Colors.white10),
+            onTap: onTap,
+            child: Ink(
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                borderRadius: AppBorderRadius.LARGE,
+                border: Border.all(
+                  color: borderColor ?? backgroundColor,
+                )
+              ),
+              width: shouldCoverHorizontal == true ? double.infinity : width,
+              child: Center(
+                child: Text(
+                  text,
+                  style: textStyle,
+                ),
+              ),
             ),
-          ),
-          child: Text(
-            text,
-            style: textStyle,
-            textAlign: TextAlign.center,
           ),
         ),
       ),
