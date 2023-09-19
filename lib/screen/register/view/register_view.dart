@@ -60,8 +60,9 @@ class RegisterView extends StatelessWidget {
 
   SizedBox textfieldList(BuildContext context) {
     return SizedBox(
-            height: dynamicHeight(context, 308),
+            height: dynamicHeight(context, 320),
             child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: registerTextfieldTypes.length,
               itemBuilder: (context, index) {
                 return Padding(
@@ -82,11 +83,14 @@ class RegisterView extends StatelessWidget {
       toolbarHeight: dynamicHeight(context, 80),
       elevation: 0,
       leading: closeButton(context),
+      leadingWidth: 100,
     );
   }
 
   IconButton closeButton(BuildContext context) {
     return IconButton(
+      highlightColor: Colors.transparent,
+      splashColor: Colors.transparent,
         padding: EdgeInsets.only(left: dynamicWidth(context, 37),top: dynamicHeight(context, 36)),
         icon: IconUtil.close,
         color: SurfaceColors.ON_PRIMARY_COLOR,

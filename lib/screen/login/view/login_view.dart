@@ -15,14 +15,13 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Padding(
             padding: AppPaddings.XLARGE_V + AppPaddings.LARGE_H,
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 buildAppName(),
                 buildAppLogo(context),
@@ -43,7 +42,6 @@ class LoginView extends StatelessWidget {
   SizedBox buildTextfield(BuildContext context,
       TextEditingController controller, TextfieldType type) {
     return SizedBox(
-      height: dynamicHeight(context, 50),
       child: CustomTextfield(
         textController: controller,
         type: type,
@@ -58,14 +56,16 @@ class LoginView extends StatelessWidget {
 
   Text buildAppName() => const Text("Calendar", style: TextStyles.APPNAME);
 
-  CustomFilledButton buildLoginButton() {
-    return CustomFilledButton(
-      backgroundColor: SurfaceColors.PRIMARY_COLOR,
-      borderColor: SurfaceColors.ON_PRIMARY_COLOR,
-      text: TextUtil.login,
-      textStyle: TextStyles.MEDIUM,
-      shouldCoverHorizontal: true,
-      onTap: () {},
+  SizedBox buildLoginButton() {
+    return SizedBox(
+      child: CustomFilledButton(
+        backgroundColor: SurfaceColors.PRIMARY_COLOR,
+        borderColor: SurfaceColors.ON_PRIMARY_COLOR,
+        text: TextUtil.login,
+        textStyle: TextStyles.SMALL,
+        shouldCoverHorizontal: true,
+        onTap: () {},
+      ),
     );
   }
 
