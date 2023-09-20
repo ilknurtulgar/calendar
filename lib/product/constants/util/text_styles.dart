@@ -17,4 +17,8 @@ class TextStyles {
     color: TextColors.PRIMARY_COLOR,
     fontSize: 34,
   );
+  static const APPNAME = TextStyle(
+    color: TextColors.SECONDARY_COLOR,
+    fontSize: 40,
+  );
 }

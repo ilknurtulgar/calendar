@@ -6,5 +6,6 @@ class TextUtil {
   static String createNewAccount = "Yeni Hesap Oluştur";
   static String register = "Kaydol";
   static String alreadyHaveAccount = "Zaten Hesabım Var.";
+  static String dontHaveAccount = "Henüz hesabın yok mu?";
   static String login = "Giriş Yap";
 }
