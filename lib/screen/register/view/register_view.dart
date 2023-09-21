@@ -20,17 +20,20 @@ class RegisterView extends StatelessWidget {
           return Scaffold(
               backgroundColor: SurfaceColors.backgroundColor,
               appBar: appBar(context),
-              body: Padding(
-                padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context,37)) + EdgeInsets.only(top: dynamicHeight(context,90), bottom: dynamicHeight(context,86)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(TextUtil.createNewAccount,style: const TextStyle(fontSize: 28.4),), // text style util'inden mi alınacak yoksa bu stilde mi kalacak?
-                    const Spacer(),
-                    textfieldList(context,model),
-                    registerButton(context),
-                    alreadyHaveAccountRow()
-                  ],
+              body: Form(
+                key: model.formKey,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 37)) + EdgeInsets.only(top: dynamicHeight(context, 90),bottom: dynamicHeight(context, 86)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(TextUtil.createNewAccount,style: const TextStyle(fontSize: 28.4),), // text style util'inden mi alınacak yoksa bu stilde mi kalacak?
+                      const Spacer(),
+                      textfieldList(context, model),
+                      registerButton(context,model),
+                      alreadyHaveAccountRow()
+                    ],
+                  ),
                 ),
               ));
         }));
@@ -51,7 +54,7 @@ class RegisterView extends StatelessWidget {
     );
   }
 
-  Padding registerButton(BuildContext context) {
+  Padding registerButton(BuildContext context, RegisterViewModel model) {
     return Padding(
       padding: EdgeInsets.only(top: dynamicHeight(context,92), bottom: dynamicHeight(context,40)),
       child: CustomFilledButton(
@@ -59,7 +62,7 @@ class RegisterView extends StatelessWidget {
         text: TextUtil.register,
         textStyle: TextStyles.SMALL,
         shouldCoverHorizontal: true,
-        onTap: () {},
+        onTap: ()=> model.save(context),
       ),
     );
   }
@@ -73,7 +76,7 @@ class RegisterView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: index != model.registerTextfieldTypes.length - 1
-                ? EdgeInsets.only(bottom: dynamicHeight(context,36))
+                ? EdgeInsets.only(bottom: dynamicHeight(context, 23))
                 : EdgeInsets.zero,
             child: CustomTextfield(
               textController: model.textControllers[index],
@@ -97,7 +100,7 @@ class RegisterView extends StatelessWidget {
 
   IconButton closeButton(BuildContext context) {
     return IconButton(
-      padding: EdgeInsets.only(top: dynamicHeight(context,36),left: dynamicWidth(context,37)),
+      padding: EdgeInsets.only(top: dynamicHeight(context, 36), left: dynamicWidth(context, 37)),
       icon: IconUtil.close,
       color: SurfaceColors.ON_PRIMARY_COLOR,
       highlightColor: Colors.transparent,
