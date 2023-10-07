@@ -17,4 +17,5 @@ class TextColors {
 
 class AssetColors {
   static const PRIMARY_COLOR = Colors.white;
+  static const SECONDARY_COLOR = Color(0xff4A6074);
 }
