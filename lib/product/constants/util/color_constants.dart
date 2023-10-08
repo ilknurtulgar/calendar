@@ -8,6 +8,9 @@ class SurfaceColors {
   static const SECONDARY_COLOR = Color(0xff084C61);
   static const ON_SECONDARY_COLOR = Color(0xff89B0AE);
   static const backgroundColor = Color(0xffF7F7F7);
+  static const TAB_BORDER_COLOR = Color(0xfffd9d9d9);
+
+  static const TRANSPARENT = Colors.transparent;
 }
 
 class TextColors {
@@ -17,4 +20,5 @@ class TextColors {
 
 class AssetColors {
   static const PRIMARY_COLOR = Colors.white;
+  static const SECONDARY_COLOR = Color(0xff4A6074);
 }
