@@ -1,23 +1,38 @@
-import 'package:calendar/product/component/drawer/custom_drawer.dart';
 import 'package:flutter/material.dart';
+import '../store/base_store.dart';
 
-class BaseView extends StatefulWidget {
-  final CustomDrawer? isDrawer;
-  final AppBar? isAppbar;
-  final Widget body;
-  const BaseView({super.key, this.isDrawer, required this.body, this.isAppbar});
+class BaseView<T extends BaseStore> extends StatefulWidget {
+  const BaseView({
+    super.key,
+    required this.viewModel,
+    required this.onPageBuilder,
+  });
+
+  final BaseStore viewModel;
+  final Widget Function(BuildContext context, T model) onPageBuilder;
 
   @override
-  State<BaseView> createState() => _BaseViewState();
+  State<BaseView<T>> createState() => _BaseView<T>();
 }
 
-class _BaseViewState extends State<BaseView> {
+class _BaseView<T extends BaseStore> extends State<BaseView<T>> {
+  late T model;
+
+  @override
+  void initState() {
+    model = widget.viewModel as T;
+    model.onInit();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    model.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: widget.isAppbar,
-      body: widget.body,
-      drawer: widget.isDrawer,
-    );
+    return widget.onPageBuilder(context, model);
   }
 }

@@ -66,9 +66,14 @@ extension BaseStateExtension on State {
 
   double bottomPadding(BuildContext context) => MediaQuery.of(context).padding.bottom;
 
-  double dynamicHeight(BuildContext context, double value) => (height(context) - topPadding(context) - bottomPadding(context)) / 932 * value; // design height
 
-  double dynamicWidth(BuildContext context, double value) => width(context) / 430 * value; // design width
+  double dynamicHeight(BuildContext context, double value) =>
+      (height(context) - topPadding(context) - bottomPadding(context)) /
+      844 *
+      value; // design height
+
+  double dynamicWidth(BuildContext context, double value) =>
+      width(context) / 390 * value; // design width
 }
 
 extension StatelessExtension on StatelessWidget {
@@ -88,7 +93,11 @@ extension StatelessExtension on StatelessWidget {
 
   double bottomPadding(BuildContext context) => MediaQuery.of(context).padding.bottom;
 
-  double dynamicHeight(BuildContext context, double value) => (height(context) - topPadding(context) - bottomPadding(context)) / 932 * value; // design height
+  double dynamicHeight(BuildContext context, double value) =>
+      (height(context) - topPadding(context) - bottomPadding(context)) /
+      844 *
+      value; // design height
 
-  double dynamicWidth(BuildContext context, double value) => width(context) / 430 * value; // design width
+  double dynamicWidth(BuildContext context, double value) =>
+      width(context) / 390 * value; // design width
 }
