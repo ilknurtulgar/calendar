@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-abstract class BaseState<T extends StatefulWidget,M extends Store>
-    extends State<T> {
+abstract class BaseState<T extends StatefulWidget, M extends Store> extends State<T> {
   BaseState({
     Key? key,
   });
@@ -31,11 +30,9 @@ abstract class BaseStateless extends StatelessWidget {
 
   ThemeData themeData(BuildContext context) => Theme.of(context);
 
-  ColorScheme colorScheme(BuildContext context) =>
-      Theme.of(context).colorScheme;
+  ColorScheme colorScheme(BuildContext context) => Theme.of(context).colorScheme;
 
-  DividerThemeData dividerTheme(BuildContext context) =>
-      Theme.of(context).dividerTheme;
+  DividerThemeData dividerTheme(BuildContext context) => Theme.of(context).dividerTheme;
 
   TextTheme textTheme(BuildContext context) => Theme.of(context).textTheme;
 
@@ -45,16 +42,11 @@ abstract class BaseStateless extends StatelessWidget {
 
   double topPadding(BuildContext context) => MediaQuery.of(context).padding.top;
 
-  double bottomPadding(BuildContext context) =>
-      MediaQuery.of(context).padding.bottom;
+  double bottomPadding(BuildContext context) => MediaQuery.of(context).padding.bottom;
 
-  double dynamicHeight(BuildContext context, double value) =>
-      (height(context) - topPadding(context) - bottomPadding(context)) /
-      932 *
-      value; // design height
+  double dynamicHeight(BuildContext context, double value) => (height(context) - topPadding(context) - bottomPadding(context)) / 932 * value; // design height
 
-  double dynamicWidth(BuildContext context, double value) =>
-      width(context) / 430 * value; // design width
+  double dynamicWidth(BuildContext context, double value) => width(context) / 430 * value; // design width
 }
 
 extension BaseStateExtension on State {
@@ -72,8 +64,8 @@ extension BaseStateExtension on State {
 
   double topPadding(BuildContext context) => MediaQuery.of(context).padding.top;
 
-  double bottomPadding(BuildContext context) =>
-      MediaQuery.of(context).padding.bottom;
+  double bottomPadding(BuildContext context) => MediaQuery.of(context).padding.bottom;
+
 
   double dynamicHeight(BuildContext context, double value) =>
       (height(context) - topPadding(context) - bottomPadding(context)) /
@@ -87,11 +79,9 @@ extension BaseStateExtension on State {
 extension StatelessExtension on StatelessWidget {
   ThemeData themeData(BuildContext context) => Theme.of(context);
 
-  ColorScheme colorScheme(BuildContext context) =>
-      Theme.of(context).colorScheme;
+  ColorScheme colorScheme(BuildContext context) => Theme.of(context).colorScheme;
 
-  DividerThemeData dividerTheme(BuildContext context) =>
-      Theme.of(context).dividerTheme;
+  DividerThemeData dividerTheme(BuildContext context) => Theme.of(context).dividerTheme;
 
   TextTheme textTheme(BuildContext context) => Theme.of(context).textTheme;
 
@@ -101,8 +91,7 @@ extension StatelessExtension on StatelessWidget {
 
   double topPadding(BuildContext context) => MediaQuery.of(context).padding.top;
 
-  double bottomPadding(BuildContext context) =>
-      MediaQuery.of(context).padding.bottom;
+  double bottomPadding(BuildContext context) => MediaQuery.of(context).padding.bottom;
 
   double dynamicHeight(BuildContext context, double value) =>
       (height(context) - topPadding(context) - bottomPadding(context)) /
