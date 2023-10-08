@@ -1,7 +1,7 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:calendar/product/constants/util/color_constants.dart';
+import 'package:calendar/product/constants/util/padding_constants.dart';
 import 'package:calendar/product/constants/util/text_styles.dart';
+import 'package:calendar/product/constants/util/text_util.dart';
 import 'package:flutter/material.dart';
 
 void modalBottomSheet(BuildContext context) {
@@ -15,88 +15,83 @@ void modalBottomSheet(BuildContext context) {
       )),
       context: context,
       builder: (context) {
-        return DraggableScrollableSheet(
-          expand: false,
-          initialChildSize: 0.5,
-          minChildSize: 0.2,
-          maxChildSize: 0.95,
-          builder: (context, scrollController) {
-            return ColumnScroll(scrollController, context);
-          },
-        );
+        return const CustomScrollableBottomSheet();
       });
 }
 
-Widget ColumnScroll(ScrollController scrollController, BuildContext context) {
-  return Column(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      SingleChildScrollView(
-        controller: scrollController,
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Container(
-                    width: 80,
-                    height: 6,
-                    decoration: const BoxDecoration(
-                        color: AssetColors.SECONDARY_COLOR,
-                        borderRadius: BorderRadius.all(Radius.circular(50))),
-                  ),
+class CustomScrollableBottomSheet extends StatelessWidget {
+  const CustomScrollableBottomSheet({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DraggableScrollableSheet(
+      expand: false,
+      initialChildSize: 0.5,
+      minChildSize: 0.2,
+      maxChildSize: 0.90,
+      builder: (context, scrollController) {
+        return Padding(
+          padding: AppPaddings.GENERAL,
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                controller: scrollController,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: AppPaddings.MEDIUM_V,
+                      child: lineContainer(),
+                    ),
+                    Padding(
+                      padding: AppPaddings.SMALL_V,
+                      child: firstText(),
+                    ),
+                    secondText(),
+                  ],
                 ),
-                RichText(
-                    textAlign: TextAlign.justify,
-                    text: TextSpan(text: "Günün Özeti", children: [
-                      TextSpan(
-                        text:
-                            " ${DateTime.now().day.toString()}.${DateTime.now().month.toString()}.${DateTime.now().year.toString()}",
-                        style: TextStyles.SMALL,
-                      )
-                    ])),
-              ],
-            ),
+              ),
+              Expanded(
+                child: listviewScroll(),
+              ),
+            ],
           ),
-        ),
-      ),
-      /*Padding(
-        padding: const EdgeInsets.only(top: 15),
-        child: Container(
-          width: 80,
-          height: 6,
-          decoration: const BoxDecoration(
-              color: AssetColors.SECONDARY_COLOR,
-              borderRadius: BorderRadius.all(Radius.circular(50))),
-        ),
-      ),*/
-      /*  const Padding(
-        padding: EdgeInsets.only(top: 15),
-        child: Text(
-          "Günün Özeti",
-          style: TextStyles.MEDIUM,
-        ),
-      ),*/
-      /* Text(
-        " ${DateTime.now().day.toString()}.${DateTime.now().month.toString()}.${DateTime.now().year.toString()}",
-        style: TextStyles.SMALL,
-      ),*/
-      Expanded(
-        child: Listview_scroll(scrollController),
-      )
-    ],
+        );
+      },
+    );
+  }
+}
+
+Text secondText() {
+  return Text(
+    " ${DateTime.now().day.toString()}.${DateTime.now().month.toString()}.${DateTime.now().year.toString()}",
+    style: TextStyles.SMALL,
   );
 }
 
-ListView Listview_scroll(ScrollController scrollController) {
+Text firstText() {
+  return const Text(
+    BottomSheetTextUtil.daySummary,
+    style: TextStyles.MEDIUM,
+  );
+}
+
+Container lineContainer() {
+  return Container(
+    width: 80,
+    height: 6,
+    decoration: const BoxDecoration(
+        color: AssetColors.SECONDARY_COLOR,
+        borderRadius: BorderRadius.all(Radius.circular(50))),
+  );
+}
+
+ListView listviewScroll() {
   return ListView.builder(
-    controller: scrollController,
     itemBuilder: (context, index) {
       return Padding(
-        padding: const EdgeInsets.all(15),
+        padding: AppPaddings.GENERAL,
         child: Text(
           dummyDateList[index],
           style: TextStyles.SMALL,

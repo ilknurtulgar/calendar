@@ -59,7 +59,7 @@ abstract class RegisterViewModelBase extends BaseStore with Store {
   void save(BuildContext context) {
     bool isValid = formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
-    if(isValid){
+    if (isValid) {
       formKey.currentState!.save();
     }
   }

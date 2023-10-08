@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class AppPaddings {
-
+  static const GENERAL = EdgeInsets.all(10);
   static const SMALL_H = EdgeInsets.symmetric(horizontal: 8);
   static const SMALL_V = EdgeInsets.symmetric(vertical: 8);
   static const MEDIUM_H = EdgeInsets.symmetric(horizontal: 16);
