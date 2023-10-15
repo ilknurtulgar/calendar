@@ -1,5 +1,5 @@
 import 'package:calendar/core/base/base_state/base_state.dart';
-import 'package:calendar/product/component/button/custom_button.dart';
+import 'package:calendar/product/component/buttons/custom_drawer_button.dart';
 import 'package:calendar/product/component/checkbox/checkbox.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +55,7 @@ class CustomDrawer extends BaseStateless {
   Padding buildButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 15.0) + const EdgeInsets.only(bottom: 15),
-      child: CustomButton(onTap: () {
+      child: CustomDrawerButton(onTap: () {
         Navigator.pop(context);
       }),
     );

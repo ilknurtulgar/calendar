@@ -14,6 +14,6 @@ class ColorUtility {
   String get _onPrimary => 'D6555B';
   String get _onSecondary => '89B0AE';
   String get _background => 'F7F7F7';
-  String get _hover => '000000';
-  String get _dark => 'FFFFFF';
+  String get _hover => 'FFFFFF';
+  String get _dark => '000000';
 }
