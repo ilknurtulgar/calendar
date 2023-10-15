@@ -23,14 +23,21 @@ class RegisterView extends StatelessWidget {
               body: Form(
                 key: model.formKey,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 37)) + EdgeInsets.only(top: dynamicHeight(context, 90),bottom: dynamicHeight(context, 86)),
+                  padding: EdgeInsets.symmetric(
+                          horizontal: dynamicWidth(context, 37)) +
+                      EdgeInsets.only(
+                          top: dynamicHeight(context, 90),
+                          bottom: dynamicHeight(context, 86)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(TextUtil.createNewAccount,style: const TextStyle(fontSize: 28.4),), // text style util'inden mi alınacak yoksa bu stilde mi kalacak?
+                      Text(
+                        TextUtil.createNewAccount,
+                        style: const TextStyle(fontSize: 28.4),
+                      ), // text style util'inden mi alınacak yoksa bu stilde mi kalacak?
                       const Spacer(),
                       textfieldList(context, model),
-                      registerButton(context,model),
+                      registerButton(context, model),
                       alreadyHaveAccountRow()
                     ],
                   ),
@@ -43,11 +50,15 @@ class RegisterView extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(TextUtil.alreadyHaveAccount,style: const TextStyle(fontSize: 16),), // small text style rengi beyaz olduğu için böyle bıraktım
+        Text(
+          TextUtil.alreadyHaveAccount,
+          style: const TextStyle(fontSize: 16),
+        ), // small text style rengi beyaz olduğu için böyle bıraktım
         TextButton(
           onPressed: () {},
           child: Text(TextUtil.login,
-              style: const TextStyle(fontSize: 16, color: SurfaceColors.ON_PRIMARY_COLOR),
+              style: const TextStyle(
+                  fontSize: 16, color: SurfaceColors.ON_PRIMARY_COLOR),
               textAlign: TextAlign.left),
         ),
       ],
@@ -56,20 +67,21 @@ class RegisterView extends StatelessWidget {
 
   Padding registerButton(BuildContext context, RegisterViewModel model) {
     return Padding(
-      padding: EdgeInsets.only(top: dynamicHeight(context,92), bottom: dynamicHeight(context,40)),
+      padding: EdgeInsets.only(
+          top: dynamicHeight(context, 92), bottom: dynamicHeight(context, 40)),
       child: CustomFilledButton(
         backgroundColor: SurfaceColors.PRIMARY_COLOR,
         text: TextUtil.register,
         textStyle: TextStyles.SMALL,
         shouldCoverHorizontal: true,
-        onTap: ()=> model.save(context),
+        onTap: () => model.save(context),
       ),
     );
   }
 
-  SizedBox textfieldList(BuildContext context,RegisterViewModel model) {
+  SizedBox textfieldList(BuildContext context, RegisterViewModel model) {
     return SizedBox(
-      height: dynamicHeight(context,320),
+      height: dynamicHeight(context, 320),
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: model.registerTextfieldTypes.length,
@@ -91,7 +103,7 @@ class RegisterView extends StatelessWidget {
   AppBar appBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
-      toolbarHeight: dynamicHeight(context,80),
+      toolbarHeight: dynamicHeight(context, 80),
       elevation: 0,
       leading: closeButton(context),
       leadingWidth: 100,
@@ -100,7 +112,8 @@ class RegisterView extends StatelessWidget {
 
   IconButton closeButton(BuildContext context) {
     return IconButton(
-      padding: EdgeInsets.only(top: dynamicHeight(context, 36), left: dynamicWidth(context, 37)),
+      padding: EdgeInsets.only(
+          top: dynamicHeight(context, 36), left: dynamicWidth(context, 37)),
       icon: IconUtil.close,
       color: SurfaceColors.ON_PRIMARY_COLOR,
       highlightColor: Colors.transparent,

@@ -9,3 +9,15 @@ class TextUtil {
   static String dontHaveAccount = "Henüz hesabın yok mu?";
   static String login = "Giriş Yap";
 }
+
+class TabbBarTextUtil {
+  static const String week = "HAFTA";
+  static const String moon = "AY";
+  static const String day = "GÜN";
+  static const String year = "YIL";
+  static const String activities = "ETKİNLİK";
+}
+
+class BottomSheetTextUtil {
+  static const String daySummary = "Günün Özeti";
+}
