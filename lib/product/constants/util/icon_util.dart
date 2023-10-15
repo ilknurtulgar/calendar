@@ -9,6 +9,8 @@ class IconUtil {
   static const Icon visibilityOff = Icon(Icons.visibility_off_outlined);
   static const Icon close = Icon(Icons.close);
   static const Icon arrowBack = Icon(Icons.arrow_back);
+  static const Icon person = Icon(Icons.person_outline);
+  static const Icon delete = Icon(Icons.delete_outline);
 
   static IconButton arrowBackButton(Function() onPressed) {
     return IconButton(onPressed: onPressed, icon: IconUtil.arrowBack);
