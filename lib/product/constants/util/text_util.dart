@@ -8,6 +8,11 @@ class TextUtil {
   static String alreadyHaveAccount = "Zaten Hesabım Var.";
   static String dontHaveAccount = "Henüz hesabın yok mu?";
   static String login = "Giriş Yap";
+  static String yes = "Evet";
+  static String no = "Hayır";
+  static String back = "Geri";
+  static String addFriend = "Arkadaş Ekle";
+  static String sendRequest = "İstek Yolla";
 }
 
 class TabbBarTextUtil {
