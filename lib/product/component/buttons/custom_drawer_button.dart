@@ -1,9 +1,10 @@
+import 'package:calendar/core/base/util/color.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomDrawerButton extends StatelessWidget {
   final bool isWhite;
   final Function() onTap;
-  const CustomButton({Key? key, this.isWhite = true, required this.onTap}) : super(key: key);
+  const CustomDrawerButton({Key? key, this.isWhite = true, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +15,13 @@ class CustomButton extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: isWhite ? Colors.white : Colors.pink,
-          border: Border.all(color: isWhite ? Colors.pink : Colors.white),
+          color: isWhite ? Colors.white : ColorUtility().onPrimary,
+          border: Border.all(color: isWhite ? ColorUtility().onPrimary : ColorUtility().hover),
         ),
         child: Center(
           child: Text(
             "Takvim Oluştur",
-            style: TextStyle(color: isWhite ? Colors.pink : Colors.white),
+            style: TextStyle(color: isWhite ? ColorUtility().onPrimary : ColorUtility().hover),
           ),
         ),
       ),
