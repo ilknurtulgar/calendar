@@ -9,6 +9,7 @@ class ColorUtility {
   Color get onPrimary => _onPrimary.toColor;
   Color get background => _background.toColor;
   Color get hover => _hover.toColor;
+  Color get border => _border.toColor;
   String get _secondary => '084C61';
   String get _primary => 'F97173';
   String get _onPrimary => 'D6555B';
@@ -16,4 +17,5 @@ class ColorUtility {
   String get _background => 'F7F7F7';
   String get _hover => 'FFFFFF';
   String get _dark => '000000';
+  String get _border => 'D9D9D9';
 }
