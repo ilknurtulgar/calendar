@@ -1,9 +1,10 @@
 import 'package:calendar/core/base/util/color.dart';
 import 'package:calendar/screen/home/view/widgets/slide_switcher.dart';
+import 'package:calendar/screen/home/viewmodel/date_switch_view_model.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class WeekView extends StatelessWidget {
+  const WeekView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +19,13 @@ class HomeView extends StatelessWidget {
             size: 30,
           ),
         ),
-        title: SlideSwitcher(),
+        title: SlideSwitcher(switchIndex: SwitchIndex.week,),
         backgroundColor: ColorUtility().hover,
         elevation: 2,
         toolbarHeight: 75,
       ),
       body: const Center(
-        child: Text('HomeView is working'),
+        child: Text('Week screen is working'),
       ),
     );
   }

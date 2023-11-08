@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 
-part 'home_view_model.g.dart';
+part 'date_switch_view_model.g.dart';
 
 enum SwitchIndex {
   week,
@@ -10,9 +10,9 @@ enum SwitchIndex {
   event,
 }
 
-class HomeViewModel = _HomeViewModel with _$HomeViewModel;
+class DateSwitchViewModel = _DateSwitchViewModel with _$DateSwitchViewModel;
 
-abstract class _HomeViewModel with Store {
+abstract class _DateSwitchViewModel with Store {
   @observable
   SwitchIndex switchIndex = SwitchIndex.week;
 

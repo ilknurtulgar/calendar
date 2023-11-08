@@ -1,16 +1,24 @@
 import 'package:calendar/core/base/base_state/base_state.dart';
 import 'package:calendar/core/base/util/color.dart';
-import 'package:calendar/screen/home/viewmodel/home_view_model.dart';
+import 'package:calendar/screen/home/view/day_view.dart';
+import 'package:calendar/screen/home/view/event_view.dart';
+import 'package:calendar/screen/home/view/month_view.dart';
+import 'package:calendar/screen/home/view/week_view.dart';
+import 'package:calendar/screen/home/view/widgets/switcher_item.dart';
+import 'package:calendar/screen/home/view/year_view.dart';
+import 'package:calendar/screen/home/viewmodel/date_switch_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class SlideSwitcher extends StatelessWidget {
-  SlideSwitcher({super.key});
+  SlideSwitcher({super.key, this.switchIndex = SwitchIndex.week});
+  late final SwitchIndex switchIndex;
 
-  final HomeViewModel viewModel = HomeViewModel();
+  final DateSwitchViewModel viewModel = DateSwitchViewModel();
 
   @override
   Widget build(BuildContext context) {
+    viewModel.changeSwitchIndex(switchIndex);
     return Container(
       width: width(context) * 0.77,
       height: 50,
@@ -28,27 +36,42 @@ class SlideSwitcher extends StatelessWidget {
           return Row(
             children: [
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.week),
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  switchTransition(() => const WeekView()),
+                ),
                 isSwitched: viewModel.switchIndex == SwitchIndex.week,
                 text: 'Hafta',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.month),
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  switchTransition(() => const MonthView()),
+                ),
                 isSwitched: viewModel.switchIndex == SwitchIndex.month,
                 text: 'Ay',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.day),
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  switchTransition(() => const DayView()),
+                ),
                 isSwitched: viewModel.switchIndex == SwitchIndex.day,
                 text: 'Gün',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.year),
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  switchTransition(() => YearView()),
+                ),
                 isSwitched: viewModel.switchIndex == SwitchIndex.year,
                 text: 'Yıl',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.event),
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  switchTransition(() => const EventView()),
+                ),
                 isSwitched: viewModel.switchIndex == SwitchIndex.event,
                 text: 'Etkinlik',
               ),
@@ -58,48 +81,13 @@ class SlideSwitcher extends StatelessWidget {
       ),
     );
   }
-}
 
-class SwitcherItem extends StatelessWidget {
-  const SwitcherItem({
-    super.key,
-    this.isSwitched = false,
-    required this.onPressed,
-    required this.text,
-  });
-
-  final bool isSwitched;
-  final VoidCallback onPressed;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: TextButton(
-        onPressed: onPressed,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-            isSwitched ? ColorUtility().primary : ColorUtility().hover,
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        ),
-        child: SizedBox(
-          height: 35,
-          child: Center(
-            child: Text(
-              text,
-              style: TextStyle(
-                color: ColorUtility().dark,
-                fontSize: 11,
-              ),
-            ),
-          ),
-        ),
-      ),
+  PageRouteBuilder<dynamic> switchTransition(Widget Function() page) {
+    return PageRouteBuilder(
+      pageBuilder: (_, __, ___) => page(),
+      transitionDuration: const Duration(seconds: 0),
+      transitionsBuilder: (_, animation, __, child) =>
+          FadeTransition(opacity: animation, child: child),
     );
   }
 }

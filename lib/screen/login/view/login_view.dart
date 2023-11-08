@@ -5,7 +5,7 @@ import 'package:calendar/product/constants/util/color_constants.dart';
 import 'package:calendar/product/constants/util/padding_constants.dart';
 import 'package:calendar/product/constants/util/text_styles.dart';
 import 'package:calendar/product/constants/util/text_util.dart';
-import 'package:calendar/screen/home/view/home_view.dart';
+import 'package:calendar/screen/home/view/week_view.dart';
 import 'package:calendar/screen/register/view/register_view.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +67,7 @@ class LoginView extends StatelessWidget {
         shouldCoverHorizontal: true,
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const HomeView(),
+            builder: (context) => const WeekView(),
           ));
         },
       ),
