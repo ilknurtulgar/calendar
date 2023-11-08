@@ -28,27 +28,27 @@ class SlideSwitcher extends StatelessWidget {
           return Row(
             children: [
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(0),
+                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.week),
                 isSwitched: viewModel.switchIndex == SwitchIndex.week,
                 text: 'Hafta',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(1),
+                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.month),
                 isSwitched: viewModel.switchIndex == SwitchIndex.month,
                 text: 'Ay',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(2),
+                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.day),
                 isSwitched: viewModel.switchIndex == SwitchIndex.day,
                 text: 'Gün',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(3),
+                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.year),
                 isSwitched: viewModel.switchIndex == SwitchIndex.year,
                 text: 'Yıl',
               ),
               SwitcherItem(
-                onPressed: () => viewModel.changeSwitchIndex(4),
+                onPressed: () => viewModel.changeSwitchIndex(SwitchIndex.event),
                 isSwitched: viewModel.switchIndex == SwitchIndex.event,
                 text: 'Etkinlik',
               ),

@@ -29,11 +29,11 @@ mixin _$HomeViewModel on _HomeViewModel, Store {
       ActionController(name: '_HomeViewModel', context: context);
 
   @override
-  void changeSwitchIndex(int index) {
+  void changeSwitchIndex(SwitchIndex date) {
     final _$actionInfo = _$_HomeViewModelActionController.startAction(
         name: '_HomeViewModel.changeSwitchIndex');
     try {
-      return super.changeSwitchIndex(index);
+      return super.changeSwitchIndex(date);
     } finally {
       _$_HomeViewModelActionController.endAction(_$actionInfo);
     }

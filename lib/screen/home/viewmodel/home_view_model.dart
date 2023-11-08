@@ -17,7 +17,7 @@ abstract class _HomeViewModel with Store {
   SwitchIndex switchIndex = SwitchIndex.week;
 
   @action
-  void changeSwitchIndex(int index) {
-    switchIndex = SwitchIndex.values[index];
+  void changeSwitchIndex(SwitchIndex date) {
+    switchIndex = SwitchIndex.values[date.index];
   }
 }
