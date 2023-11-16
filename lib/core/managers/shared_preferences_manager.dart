@@ -1,13 +1,15 @@
 import "package:shared_preferences/shared_preferences.dart";
+import 'package:calendar/core/di/di.dart';
 
 class SharedPreferencesManager {
   static final SharedPreferencesManager _instance =
       SharedPreferencesManager._init();
+
   static SharedPreferencesManager get instance => _instance;
   SharedPreferences? _preferences;
 
   SharedPreferencesManager._init() {
-    SharedPreferences.getInstance().then((value) => _preferences = value);
+    _preferences = getIt<SharedPreferences>();
   }
 
   Future<void> preferencesInit() async {
