@@ -1,6 +1,6 @@
 name: calendar
 description: A new Flutter project.
-publish_to: 'none' 
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -9,12 +9,13 @@ environment:
 dependencies:
   build_runner: ^2.4.6
   flutter:
-     sdk: flutter
+    sdk: flutter
   flutter_mobx: ^2.0.6+5
   mobx: ^2.2.0
   mobx_codegen: ^2.3.0
   shared_preferences: ^2.2.1
-  
+  easy_localization: ^3.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -23,7 +24,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/app_logo.png
-    - assets/fonts/Inter-Regular.ttf
+    - assets/images/
+    - assets/fonts/
+    - assets/translations/
 
  
