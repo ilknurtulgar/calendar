@@ -17,6 +17,7 @@ Notes        :
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../screen/home/view/home_view.dart';
 import '../../screen/login/view/login_view.dart';
 import '../di/di.dart';
 import '../managers/localization_manager.dart';
@@ -52,7 +53,7 @@ class _InitState extends State<Init> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: const LoginView(),
+      home:  HomeView(),
     );
   }
 }
