@@ -1,6 +1,5 @@
 /*
 
-© 2023 B1 Digital
 © 2023 Skylab MobiLab
 
 User         : alisinancobani
