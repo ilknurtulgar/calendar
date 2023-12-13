@@ -2,6 +2,8 @@ import 'package:calendar/core/extension/string.dart';
 import 'package:flutter/material.dart';
 
 class ColorUtility {
+
+
   Color get secondary => _secondary.toColor;
   Color get primary => _primary.toColor;
   Color get dark => _dark.toColor;
