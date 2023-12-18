@@ -1,6 +1,6 @@
+import 'package:calendar/product/component/buttons/custom_text_button.dart';
 import 'package:calendar/product/component/dialog/base_dialog.dart';
 import 'package:flutter/material.dart';
-import '../../../core/base/util/color.dart';
 import '../../constants/util/text_styles.dart';
 import '../../constants/util/text_util.dart';
 
@@ -13,7 +13,7 @@ class MessageDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseDialog(
-      content: text(message, ColorUtility().dark),
+      content: Text(message, style: TextStyles.SMALL),
       actions: [
         yesNoTextButton(false, context),
         yesNoTextButton(true, context),
@@ -21,23 +21,12 @@ class MessageDialog extends StatelessWidget {
     );
   }
 
-  TextButton yesNoTextButton(bool isForYes, BuildContext context) {
+  Widget yesNoTextButton(bool isForYes, BuildContext context) {
     String buttonText = isForYes ? TextUtil.yes : TextUtil.no;
-    Color textColor = isForYes ? ColorUtility().secondary : ColorUtility().onPrimary;
-    Alignment alignment = isForYes ? Alignment.centerRight : Alignment.centerLeft;
-    return TextButton(
-      style: ButtonStyle(
-        padding: MaterialStateProperty.all(EdgeInsets.zero),
-        alignment: alignment,
-        overlayColor: MaterialStateProperty.all(Colors.transparent),
-      ),
+    return CustomTextButton(
+      title: buttonText,
+      isBlue: isForYes,
       onPressed: isForYes ? acceptFunction : () => Navigator.pop(context),
-      child: text(buttonText, textColor),
     );
   }
-
-  Text text(String text, Color color) => Text(
-        text,
-        style: TextStyles.SMALL.copyWith(color: color),
-      );
 }
