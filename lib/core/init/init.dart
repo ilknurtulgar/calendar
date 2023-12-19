@@ -52,6 +52,7 @@ class _InitState extends State<Init> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+      scrollBehavior: const ScrollBehavior().copyWith(overscroll: false), // sayfaları kaydırırken sonda ve başta oluşan parlak rengi kaldırmak için
       home: const LoginView(),
     );
   }

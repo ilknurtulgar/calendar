@@ -6,8 +6,10 @@ import '../../constants/util/color_constants.dart';
 import '../../constants/util/icon_util.dart';
 
 class SecondaryAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SecondaryAppBar({super.key, required this.onPressed});
+  final String title;
   final Function() onPressed;
+
+  const SecondaryAppBar({super.key,required this.title ,required this.onPressed});
   @override
   Size get preferredSize => const Size.fromHeight(60.0);
   @override
@@ -17,8 +19,8 @@ class SecondaryAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: customDivider(),
       backgroundColor: SurfaceColors.backgroundColor,
       leading: IconUtil.arrowBackButton(onPressed),
-      title: const Text(
-        " Eyül 2023",
+      title: Text(
+        title,
         style: TextStyles.MEDIUM_SECONDARY,
       ),
     );
