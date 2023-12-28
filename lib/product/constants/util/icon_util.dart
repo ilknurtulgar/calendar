@@ -1,3 +1,4 @@
+import 'package:calendar/product/constants/util/color_constants.dart';
 import 'package:flutter/material.dart';
 
 class IconUtil {
@@ -9,8 +10,22 @@ class IconUtil {
   static const Icon visibilityOff = Icon(Icons.visibility_off_outlined);
   static const Icon close = Icon(Icons.close);
   static const Icon arrowBack = Icon(Icons.arrow_back);
+  static const Icon menu = Icon(Icons.menu, color: SurfaceColors.SECONDARY_COLOR);
+  static const Icon notification = Icon(Icons.notifications_none, color: SurfaceColors.SECONDARY_COLOR);
+  static const Icon moreVert =  Icon(Icons.more_vert, color: SurfaceColors.SECONDARY_COLOR);
+  static const Icon search = Icon(Icons.search, color: SurfaceColors.SECONDARY_COLOR);
+  static const Icon person = Icon(Icons.person_outline);
+  static const Icon delete = Icon(Icons.delete_outline);
+  static const IconData forward = Icons.arrow_forward_ios;
+  static const IconData down = Icons.expand_more;
+  static const IconData clock = Icons.alarm;
 
+  
   static IconButton arrowBackButton(Function() onPressed) {
-    return IconButton(onPressed: onPressed, icon: IconUtil.arrowBack);
+    return IconButton(
+      onPressed: onPressed,
+      icon: IconUtil.arrowBack,
+      color: SurfaceColors.SECONDARY_COLOR,
+    );
   }
 }
