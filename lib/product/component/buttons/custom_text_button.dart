@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
   final String title;
+  final double textSize;
   final bool isBlue;
-  final bool isBig;
   final bool isItalic;
   final VoidCallback onPressed;
 
@@ -12,8 +12,8 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    this.textSize = 12,
     this.isBlue = false,
-    this.isBig = false,
     this.isItalic = false,
   });
 
@@ -26,7 +26,7 @@ class CustomTextButton extends StatelessWidget {
         style: TextStyle(
             fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
             color: isBlue ? ColorUtility().secondary : ColorUtility().onPrimary,
-            fontSize: isBig ? 21 : 12
+            fontSize: textSize
           ),
       ),
     );
