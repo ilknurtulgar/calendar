@@ -13,6 +13,14 @@ class TextUtil {
   static String back = "Geri";
   static String addFriend = "Arkadaş Ekle";
   static String sendRequest = "İstek Yolla";
+  static String accept = "Kabul Et";
+  static String reject = "Reddet";
+  static String meetingTopic = "Toplantı Konusu";
+  static String date = "Tarih";
+  static String friendshipRequest = "Arkadaşlık İsteği";
+  static String notifications = "Bildirimler";
+  static String invitations = "Davetiyeler";
+  static String requests = "İstekler";
 }
 
 class TabbBarTextUtil {

@@ -16,9 +16,13 @@ class IconUtil {
   static const Icon search = Icon(Icons.search, color: SurfaceColors.SECONDARY_COLOR);
   static const Icon person = Icon(Icons.person_outline);
   static const Icon delete = Icon(Icons.delete_outline);
+
   static const IconData forward = Icons.arrow_forward_ios;
   static const IconData down = Icons.expand_more;
-  static const IconData clock = Icons.alarm;
+  static const IconData alarm = Icons.alarm;
+  static const IconData calendar = Icons.calendar_month_outlined;
+  static const IconData schedule = Icons.schedule_outlined;
+  static const IconData personAdd = Icons.person_add_outlined;
 
   
   static IconButton arrowBackButton(Function() onPressed) {

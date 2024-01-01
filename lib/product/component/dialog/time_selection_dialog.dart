@@ -25,7 +25,7 @@ class TimeSelectionDialog extends StatelessWidget {
     return BaseDialog(
         title: const DialogTitle(
           title: SettingsTextUtil.clock,
-          iconData: IconUtil.clock,
+          iconData: IconUtil.alarm,
         ),
         content: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 65),

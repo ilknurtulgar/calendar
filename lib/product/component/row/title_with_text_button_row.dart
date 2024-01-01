@@ -24,11 +24,12 @@ class TitleWithTextButton extends StatelessWidget {
           style: TextStyles.MEDIUM_SECONDARY,
         ),
         CustomTextButton(
+            onPressed: onPressed,
             title: buttontext,
+            textSize: 20,
             isBlue: true,
-            isBig: true,
             isItalic: true,
-            onPressed: onPressed)
+        ),
       ],
     );
   }
