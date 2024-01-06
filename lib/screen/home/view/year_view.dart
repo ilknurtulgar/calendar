@@ -2,17 +2,17 @@ import 'package:calendar/core/base/util/color.dart';
 import 'package:calendar/screen/home/view/widgets/slide_switcher.dart';
 import 'package:calendar/screen/home/view/widgets/year_switcher.dart';
 import 'package:calendar/screen/home/viewmodel/date_switch_view_model.dart';
-import 'package:calendar/screen/home/viewmodel/year_switcher_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+
+import 'a.dart' as a;
 
 class YearView extends StatelessWidget {
-  YearView({super.key});
-
-  final YearSwitchViewModel viewModel = YearSwitchViewModel();
+  const YearView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Make this variable observable
+    var year = 2005;
     return Scaffold(
       backgroundColor: ColorUtility().hover,
       appBar: AppBar(
@@ -24,7 +24,9 @@ class YearView extends StatelessWidget {
             size: 30,
           ),
         ),
-        title: SlideSwitcher(switchIndex: SwitchIndex.week,),
+        title: SlideSwitcher(
+          switchIndex: SwitchIndex.year,
+        ),
         backgroundColor: ColorUtility().hover,
         elevation: 2,
         toolbarHeight: 75,
@@ -33,30 +35,56 @@ class YearView extends StatelessWidget {
         child: Column(
           children: [
             YearSwitcher(),
-            Observer(builder: (_) {
-              return GridView.builder(
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 7,
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.33,
+                  height: MediaQuery.sizeOf(context).height * 0.17,
+                  child: a.CalendarDatePicker(
+                    initialDate: DateTime(2023, 1),
+                    firstDate: DateTime(1900),
+                    initialCalendarMode: DatePickerMode.day,
+                    lastDate: DateTime(2400),
+                    onDateChanged: (value) {
+                      print(value);
+                    },
+                  ),
                 ),
-                itemCount: getDaysInMonth(
-                        viewModel.selectedYear, viewModel.selectedMonth)
-                    .length,
-                itemBuilder: (context, index) {
-                  int day = getDaysInMonth(
-                      viewModel.selectedYear, viewModel.selectedMonth)[index];
-                  return Text(day.toString());
-                },
-              );
-            }),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.33,
+                  height: MediaQuery.sizeOf(context).height * 0.17,
+                  child: a.CalendarDatePicker(
+                    initialDate: DateTime(2023, 2),
+                    firstDate: DateTime(1900),
+                    initialCalendarMode: DatePickerMode.day,
+                    lastDate: DateTime(2400),
+                    onDateChanged: (value) {
+                      print(value);
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.33,
+                  height: MediaQuery.sizeOf(context).height * 0.17,
+                  child: a.CalendarDatePicker(
+                    initialDate: DateTime(2023, 3),
+                    firstDate: DateTime(1900),
+                    initialCalendarMode: DatePickerMode.day,
+                    lastDate: DateTime(2400),
+                    onDateChanged: (value) {
+                      print(value);
+                    },
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
     );
-  }
-
-  List<int> getDaysInMonth(int year, int month) {
-    int daysInMonth = DateTime(year, month + 1, 0).day;
-    return List<int>.generate(daysInMonth, (index) => index + 1);
   }
 }

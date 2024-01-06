@@ -10,7 +10,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: LoginView());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const LoginView(),
+      locale: const Locale('tr', 'TR'),
+      theme: ThemeData(
+          datePickerTheme: const DatePickerThemeData(
+        dayStyle: TextStyle(fontSize: 10),
+      )),
+    );
   }
 }

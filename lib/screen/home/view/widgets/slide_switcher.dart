@@ -62,7 +62,7 @@ class SlideSwitcher extends StatelessWidget {
               SwitcherItem(
                 onPressed: () => Navigator.pushReplacement(
                   context,
-                  switchTransition(() => YearView()),
+                  switchTransition(() => const YearView()),
                 ),
                 isSwitched: viewModel.switchIndex == SwitchIndex.year,
                 text: 'Yıl',
