@@ -9,6 +9,7 @@ class SurfaceColors {
   static const ON_SECONDARY_COLOR = Color(0xff89B0AE);
   static const backgroundColor = Color(0xffF7F7F7);
   static const TAB_BORDER_COLOR = Color(0xfffd9d9d9);
+  static const HOVER_COLOR = Color(0XffFFFFFF);
 
   static const TRANSPARENT = Colors.transparent;
 }

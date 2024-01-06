@@ -13,13 +13,13 @@ class BaseDialog extends StatelessWidget {
     return AlertDialog(
       backgroundColor: ColorUtility().hover,
       shape: RoundedRectangleBorder(
-        borderRadius: AppBorderRadius.SMALL,
+        borderRadius: AppBorderRadius.MEDIUM,
         side: BorderSide(color: ColorUtility().secondary),
       ),
       title: title,
       insetPadding: const EdgeInsets.symmetric(horizontal: 45), // dialog dışındaki padding
       content: content,
-      contentPadding: const EdgeInsets.all(25),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
       actions: actions,
       actionsAlignment: actions.length > 1 ? MainAxisAlignment.spaceBetween : MainAxisAlignment.end,
       actionsPadding: const EdgeInsets.symmetric(horizontal: 25) + const EdgeInsets.only(bottom: 25),
